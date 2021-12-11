@@ -73,18 +73,18 @@
 
 
 
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Already a user?" Margin="40, 20, 0, 20"/>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Margin="0, 20, 0, 20">
+                          <!--  <Label Text="Already a user?" Margin="40, 20, 0, 20"/> -->
                             <local1:HyperlinkLabel Text="Login" Url="6" Margin="0, 20, 0, 20"/>
-                            <Label Text="New User?" Margin="0, 20, 0, 20"/>
+                         <!--   <Label Text="New User?" Margin="0, 20, 0, 20"/> -->
+                            <Label Text="Or" Margin="0, 20, 0, 20"/> 
                             <local1:HyperlinkLabel Text="Create Account" Url="10" Margin="0, 20, 20, 20"/>
-
                         </StackLayout>
-
+<!--
 
                         <CheckBox x:Name="dummyDataCheckBox" IsChecked="false" CheckedChanged="DummyData_Clicked"/>
 
-
+-->
 
 
                         <Label Text="Full Name" Margin="20, 0, 20, 0"/>

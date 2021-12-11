@@ -604,7 +604,7 @@ namespace HouseboundBaking.Views
             //expiry.Text = "";
             //cvv.Text = "";
 
-            dummyDataCheckBox.IsChecked = false;
+            //dummyDataCheckBox.IsChecked = false;
             //   ageLimitCheckBox.IsChecked = false;
         }
 
