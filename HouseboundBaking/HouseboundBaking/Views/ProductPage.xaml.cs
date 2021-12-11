@@ -1,4 +1,5 @@
-﻿using HouseboundBaking.Models;
+﻿using HouseboundBaking.Data;
+using HouseboundBaking.Models;
 using HouseboundBaking.Services;
 using HouseboundBaking.ViewModels;
 using Microsoft.AppCenter.Analytics;
@@ -37,8 +38,8 @@ namespace HouseboundBaking.Views
 
                 //   micService = DependencyService.Resolve<IMicrophoneService>();
 
-                //  SQLiteFunctionality sql = new SQLiteFunctionality();
-                // int tablesDeleted = sql.DeleteAllTables_ReturnCountTablesDeleted();
+                  SQLiteFunctionality sql = new SQLiteFunctionality();
+                 int tablesDeleted = sql.DeleteAllTables_ReturnCountTablesDeleted();
 
                 productPage_ViewModal = new ProductPageViewModel();
 

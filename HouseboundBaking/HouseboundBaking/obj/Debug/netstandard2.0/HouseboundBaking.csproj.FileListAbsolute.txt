@@ -33,3 +33,4 @@ C:\Users\mlaga\source\repos\HouseboundBaking\HouseboundBaking\HouseboundBaking\o
 C:\Users\mlaga\source\repos\HouseboundBaking\HouseboundBaking\HouseboundBaking\obj\Debug\netstandard2.0\HouseboundBaking.dll
 C:\Users\mlaga\source\repos\HouseboundBaking\HouseboundBaking\HouseboundBaking\obj\Debug\netstandard2.0\ref\HouseboundBaking.dll
 C:\Users\mlaga\source\repos\HouseboundBaking\HouseboundBaking\HouseboundBaking\obj\Debug\netstandard2.0\HouseboundBaking.pdb
+C:\Users\mlaga\source\repos\HouseboundBaking\HouseboundBaking\HouseboundBaking\obj\Debug\netstandard2.0\HouseboundBaking.csproj.AssemblyReference.cache
