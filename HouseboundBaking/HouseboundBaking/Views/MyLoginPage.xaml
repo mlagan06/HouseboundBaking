@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:HouseboundBaking" 
+             xmlns:local1="clr-namespace:HouseboundBaking.Data"
+             x:Class="HouseboundBaking.Views.MyLoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <!--<ColumnDefinition Width="20*"/>-->
+                </Grid.ColumnDefinitions>
+
+
+                <StackLayout Grid.Row="0"  Grid.Column="0">
+
+                    <Label Text="Email Address" Margin="20, 20, 20, 0"/>
+                    <Entry Placeholder="Email"  x:Name="emailEntry" Margin="20, 0, 20, 0">
+                        <Entry.Behaviors>
+                            <xct:MultiValidationBehavior x:Name="myEmailValidation">
+                                <xct:EmailValidationBehavior x:Name="emailValidationBehavior" MinimumLength="1"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Email is not valid"/>
+                            </xct:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Label Text="Password" Margin="20, 0, 20, 0"/>
+                    <Entry Placeholder="Password" x:Name="passwordEntry" Margin="20, 0, 20, 0" IsPassword="True">
+                        <Entry.Behaviors>
+                            <xct:MultiValidationBehavior x:Name="myPasswordValidation">
+                                <!--<xct:TextValidationBehavior MaximumLength="50" MinimumLength="1" x:Name="myNameValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Name can not be empty"/>-->
+                                <xct:TextValidationBehavior MaximumLength="50" MinimumLength="6" x:Name="myPWValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Password must be 6 characters or more"/>
+                            </xct:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <Button Clicked="LoginButton_Clicked" Text="Login" Margin="20, 0, 20, 20"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1"  Grid.Column="0">
+                    <local1:HyperlinkLabel Text="Forgot password?" Url="8" Margin="20, 0, 20, 20"/>
+
+                    <Label Margin="20, 0, 20, 20">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <!-- url="10" being homeMenuItem for CreateNewUserPage -->
+                                <Span Text="Click " />
+                                <local1:HyperlinkSpan Text="here" Url="10" />
+                                <Span Text=" to create a new account." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

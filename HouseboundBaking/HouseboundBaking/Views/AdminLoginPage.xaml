@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HouseboundBaking.Views.AdminLoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="StackLayoutPasswordEntry" IsVisible="{Binding SLPasswordEntryVisibility}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Entry Placeholder="Password" Keyboard="Numeric" MaxLength="50" x:Name="passwordEntry"  />
+                <Button Clicked="PasswordEntered_Clicked" Text="Enter"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local1="clr-namespace:HouseboundBaking.Data"
+             x:Class="HouseboundBaking.Views.CheckoutPage">
+    <ContentPage.ToolbarItems>
+
+        <!-- -->
+
+
+        <ToolbarItem Name="CartImage" Icon="ShoppingCartImage.png" Priority="0" Order="Primary" Activated="ShoppingCartClicked"/>
+        <ToolbarItem Text="{Binding NoItemsInShoppingCart}" Priority="0" Order="Primary" Activated="ShoppingCartClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="InvalidStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="Red"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView x:Name="scroll">
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <!--<ColumnDefinition Width="20*"/>-->
+                    </Grid.ColumnDefinitions>
+
+                    <!--<StackLayout Grid.Row="0" HorizontalOptions="End">
+                        -->
+                    <!--<Label Text="Test"/>-->
+                    <!--
+                        <CheckBox IsChecked="false" CheckedChanged="DummyData_Clicked" />
+                    </StackLayout>-->
+
+                    <!--<StackLayout Grid.Row="1"  Grid.Column="0">
+                        -->
+                    <!--<Frame BackgroundColor="Blue" Padding="24" CornerRadius="0">
+                            <Label Text="Input Validation Sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                        </Frame>-->
+
+
+                    <!--<Entry Placeholder="Email" >
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myMultiValidation1">
+
+                                    <xct:EmailValidationBehavior x:Name="myEmailValidation1"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Email 1 is not valid"/>
+                                    <xct:RequiredStringValidationBehavior x:Name="myRequiredString1"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Please enter Email address"/>
+                                    <xct:TextValidationBehavior RegexOptions="" x:Name="myRegexValidation1"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Regex is not valid"/>
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="myTextValidation1"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Values can not be empty"/>
+
+
+
+
+
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>-->
+                    <!--
+
+                       
+
+                       
+                      
+                    </StackLayout>-->
+
+                    <StackLayout Grid.Row="0"  Grid.Column="0">
+
+
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Already a user?" Margin="40, 20, 0, 20"/>
+                            <local1:HyperlinkLabel Text="Login" Url="6" Margin="0, 20, 0, 20"/>
+                            <Label Text="New User?" Margin="0, 20, 0, 20"/>
+                            <local1:HyperlinkLabel Text="Create Account" Url="10" Margin="0, 20, 20, 20"/>
+
+                        </StackLayout>
+
+
+                        <CheckBox x:Name="dummyDataCheckBox" IsChecked="false" CheckedChanged="DummyData_Clicked"/>
+
+
+
+
+                        <Label Text="Full Name" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Name" x:Name="nameEntry" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myFullNameValidation">
+                                    <!--<xct:TextValidationBehavior MaximumLength="50" MinimumLength="1" x:Name="myNameValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Name can not be empty"/>-->
+                                    <xct:TextValidationBehavior RegexPattern="\A\p{L}+([\p{Zs}\-][\p{L}]+)*\z" MaximumLength="50" MinimumLength="1" x:Name="myNameValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Only characters accepted for name"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="Email Address" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Email"  x:Name="emailEntry" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myEmailValidation">
+                                    <xct:EmailValidationBehavior x:Name="emailValidationBehavior"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Email is not valid"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+
+                        <!--
+                        <Label Text="First line of address" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Address Line 1" MaxLength="50" x:Name="address1"  Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myfirstLineOfAddressValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="firstLineOfAddressValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter first line of address"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="Second line of address" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Address Line 2" MaxLength="50" x:Name="address2" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="mySecondLineOfAddressValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="secondLineOfAddressValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter second line of address"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+
+
+                        <Label Text="Town/City" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Town/City" MaxLength="50" x:Name="town_city" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myTown_CityValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="town_CityValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter town/city"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="County" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="County" MaxLength="50" x:Name="county" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myCountyValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="countyValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter County"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="Country" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Country" MaxLength="30" x:Name="country" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myCountryValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="countryValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter Country"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="Postcode" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Postcode" MaxLength="10" x:Name="postcode" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myPostcodeValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" x:Name="postcodeValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter Postcode"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        
+                        -->
+                        <Label Text="Mobile Number" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Mobile" MaxLength="11" x:Name="mobileNumber" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myMobileNumberValidation">
+                                    <xct:TextValidationBehavior MinimumLength="1" MaximumLength="11" x:Name="mobileNumberValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter Mobile Number"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <!--
+                        <Label Text="Card Details" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="20, 0, 20, 0"/>
+                        <Label Text="Card Number" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="Card Number" Keyboard="Numeric" MaxLength="16" x:Name="cardNo" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="mycardNumberValidation">
+                                    <xct:TextValidationBehavior RegexPattern="\d{16}" x:Name="cardNumberValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter 16 digit Card Number"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="Expiry Date" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="MM/YY" Keyboard="Numeric" MaxLength="4" x:Name="expiry" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="myexpiryValidation">
+                                    <xct:TextValidationBehavior RegexPattern="\d{4}" x:Name="expiryValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter 4 digit expire date in the MM/YY format"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label Text="CVV" Margin="20, 0, 20, 0"/>
+                        <Entry Placeholder="CVV" Keyboard="Numeric" MaxLength="3" x:Name="cvv" Margin="20, 0, 20, 0">
+                            <Entry.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="mycvvValidation">
+                                    <xct:TextValidationBehavior RegexPattern="\d{3}" x:Name="cvvValidation"  Flags="ValidateOnUnfocusing" xct:MultiValidationBehavior.Error="Enter 3 digit CVV number"/>
+                                </xct:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+                        
+                        <StackLayout Margin="20, 20, 20, 0" Orientation="Horizontal">
+                            <CheckBox x:Name="ageLimitCheckBox" HorizontalOptions="Start" VerticalOptions="Start" IsChecked="{Binding isAgeLimitChecked}" CheckedChanged="isAgeLimitChanged"/>
+                            <Label HorizontalOptions="Start" VerticalOptions="Start" Text="I confirm that I am atleast 18 years of age."/>
+                        </StackLayout>
+                            -->
+
+
+                        <Button Clicked="Button_Clicked" Text="Place Order" Margin="20, 0, 20, 20"/>
+
+                        <Label Text="We do not collect payment. Please pay for your order at the shop when you collect it. Thank You" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="20, 0, 20, 0"/>
+
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
